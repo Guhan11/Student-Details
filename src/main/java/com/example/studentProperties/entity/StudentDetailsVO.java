@@ -28,7 +28,7 @@ public class StudentDetailsVO {
 	private String name;
 	private String address;
 	private int age;
-	@OneToMany(mappedBy = "studDetails",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "",cascade = CascadeType.ALL)
 	@JsonManagedReference
 	List<ItemsVO> items;
 }
