@@ -1,9 +1,13 @@
 package com.example.studentProperties.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +25,9 @@ public class ItemsVO {
 	private int id;
 	private String accessories;
 	private String toys;
-	
+	@ManyToOne
+	@JsonBackReference
+	@JoinColumn(name = "Stud_id")
+	StudentDetailsVO studDetails;
 	
 }

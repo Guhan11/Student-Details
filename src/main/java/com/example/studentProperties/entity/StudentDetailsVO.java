@@ -1,9 +1,15 @@
 package com.example.studentProperties.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +28,7 @@ public class StudentDetailsVO {
 	private String name;
 	private String address;
 	private int age;
-	
+	@OneToMany(mappedBy = "studDetails",cascade = CascadeType.ALL)
+	@JsonManagedReference
+	List<ItemsVO> items;
 }
